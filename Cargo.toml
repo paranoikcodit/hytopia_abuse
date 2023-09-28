@@ -1,0 +1,25 @@
+[package]
+name = "hytopia"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+
+[dependencies]
+anyhow = "1.0.75"
+dialoguer = "0.11.0"
+futures = "0.3.28"
+random_name_generator = "0.3.6"
+reqwest = { version = "0.11.20", features = ["cookies"] }
+rspasser = { git = "https://github.com/DOROGODD/rspasser", version = "0.1.0" }
+tokio = { version = "1.32.0", features = ["full"] }
